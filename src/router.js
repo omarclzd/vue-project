@@ -14,13 +14,21 @@ export default new Router({
       component: Home
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      path: "/profile",
+      name: "profile",
+
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+        import(/* webpackChunkName: "profile" */ "./views/Profile.vue")
+    },
+    {
+      path: "/sign-in",
+      name: "signin",
+      component: () => import("./views/Signin.vue")
+    },
+    {
+      path: "/sign-up",
+      name: "signup",
+      component: () => import("./views/Signup.vue")
     }
   ]
 });
