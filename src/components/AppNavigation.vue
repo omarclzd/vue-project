@@ -28,7 +28,7 @@
       </router-link>
       <v-spacer></v-spacer>
       <v-btn flat to="/sign-in">SIGN IN</v-btn>
-      <v-btn color="green lighten-3" to="/signup">Signup</v-btn>
+      <v-btn color="green lighten-3" to="/sign-up">Signup</v-btn>
       <v-btn flat to="/profile">PROFILE</v-btn>
     </v-app-bar>
   </span>
