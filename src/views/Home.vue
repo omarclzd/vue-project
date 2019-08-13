@@ -10,6 +10,7 @@
           <v-card-title>{{ post.title }}</v-card-title>
           <v-card-text>{{ post.phone }}</v-card-text>
           <v-card-text>{{ post.desc }}</v-card-text>
+          <v-btn small to="/post-details">Details</v-btn>
         </v-card>
       </div>
     </div>

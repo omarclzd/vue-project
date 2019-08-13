@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import AddPost from "./views/AddPost.vue";
+import PostDetails from "./views/PostDetails.vue";
 import store from "./store";
 
 Vue.use(Router);
@@ -22,6 +23,11 @@ const router = new Router({
       meta: {
         authRequired: true
       }
+    },
+    {
+      path: "/post-details",
+      name: "postdetails",
+      component: PostDetails
     },
     {
       path: "/profile",
