@@ -27,6 +27,13 @@
         <v-toolbar-title to="/">{{appTitle}}</v-toolbar-title>
       </router-link>
       <v-spacer></v-spacer>
+      <div v-if="this.$store.getters.getUser">
+        <h2>User</h2>
+      </div>
+      <div v-else>
+        <h2>no user</h2>
+      </div>
+      <v-spacer></v-spacer>
       <v-btn flat to="/sign-in">SIGN IN</v-btn>
       <v-btn color="green lighten-3" to="/sign-up">Signup</v-btn>
       <v-btn flat to="/profile">PROFILE</v-btn>

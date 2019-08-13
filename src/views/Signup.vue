@@ -9,6 +9,14 @@
           <v-card-text>
             <v-form ref="form" v-model="valid" lazy-validation>
               <v-text-field
+                name="displayName"
+                label="username"
+                type="displayName"
+                v-model="displayName"
+                :rules="usernameRules"
+                required
+              ></v-text-field>
+              <v-text-field
                 name="email"
                 label="Email"
                 type="email"
@@ -42,8 +50,13 @@ export default {
   data() {
     return {
       valid: false,
+      displayName: "",
       email: "",
       password: "",
+      usernameRules: [
+        v => !!v || "Username is required",
+        v => v.length >= 2 || "Username must be greater than 2 characters"
+      ],
       emailRules: [
         v => !!v || "E-mail is required",
         v => /.+@.+/.test(v) || "E-mail must be valid"

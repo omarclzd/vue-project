@@ -10,11 +10,18 @@ export default new Vuex.Store({
   state: {
     posts: null,
     user: null,
-    isAuthenticated: false
+    isAuthenticated: false,
+    userPosts: null
   },
   getters: {
+    getUser: state => {
+      return state.user;
+    },
     getPosts: state => {
       return state.posts;
+    },
+    getUserPosts: state => {
+      return state.userPosts;
     },
     isAuthenticated(state) {
       return state.user !== null && state.user !== undefined;
@@ -44,17 +51,40 @@ export default new Vuex.Store({
           });
           state.posts = posts;
         });
+    },
+    setUserPosts: state => {
+      let userPosts = [];
+      firebase
+        .firestore()
+        .collection("posts")
+        .where("user", "==", firebase.auth().currentUser.uid)
+        .orderBy("created_at")
+        .onSnapshot(snapshot => {
+          userPosts = [];
+          snapshot.forEach(doc => {
+            userPosts.push({
+              id: doc.id,
+              title: doc.data().title,
+              posted: doc.data().created_at
+            });
+          });
+          state.userPosts = userPosts;
+        });
     }
   },
   actions: {
     setPosts: context => {
       context.commit("setPosts");
     },
+    setUserPosts: context => {
+      context.commit("setUserPosts");
+    },
     userJoin({ commit }, { email, password }) {
       firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(user => {
+          user.updateProfile({ displayName: this.displayName });
           commit("setUser", user);
           commit("setIsAuthenticated", true);
           router.push("/profile");
@@ -72,7 +102,7 @@ export default new Vuex.Store({
         .then(user => {
           commit("setUser", user);
           commit("setIsAuthenticated", true);
-          router.push("/profile");
+          router.push("/");
         })
         .catch(() => {
           commit("setUser", null);
