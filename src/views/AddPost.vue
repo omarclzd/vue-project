@@ -8,17 +8,16 @@
           <v-col cols="12" md="4">
             <v-text-field v-model="title" :rules="nameRules" :counter="10" label="title" required></v-text-field>
           </v-col>
+          <v-col cols="12" md="4">
+            <v-text-field v-model="phone" :rules="phoneRules" label="phone (xxx-xxx-xxxx)" required></v-text-field>
+          </v-col>
 
+          <v-col cols="12" md="4">
+            <v-textarea v-model="desc" solo label="description" required></v-textarea>
+          </v-col>
           <v-col cols="12" md="4">
             <v-btn @click="addPost" color="primary">Add</v-btn>
             <div v-if="errors !== ''" id="errors">{{ errors }}</div>
-            <!-- <v-text-field
-              v-model="desc"
-              :rules="nameRules"
-              :counter="10"
-              label="description"
-              required
-            ></v-text-field>-->
           </v-col>
 
           <!-- <v-col cols="12" md="4">
@@ -40,7 +39,13 @@ export default {
   data() {
     return {
       title: "",
-      errors: ""
+      phone: "",
+      desc: "",
+
+      errors: "",
+      phoneRules: [
+        v => /^[2-9]\d{2}-\d{3}-\d{4}$/.test(v) || "phone must be valid"
+      ]
     };
   },
   methods: {
@@ -52,6 +57,8 @@ export default {
           .collection("posts")
           .add({
             title: this.title,
+            phone: this.phone,
+            desc: this.desc,
             created_at: new Date(),
             user: firebase.auth().currentUser.uid
           })
