@@ -25,9 +25,7 @@ export default {
     this.$store.dispatch("setPosts");
   },
   data() {
-    return {
-      postId: this.$route.params.id
-    };
+    return {};
   }
 };
 </script>
