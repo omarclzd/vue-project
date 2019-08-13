@@ -25,8 +25,8 @@ const router = new Router({
       }
     },
     {
-      path: "/post-details",
-      name: "postdetails",
+      path: "/post-details/:id",
+      name: "post-details",
       component: PostDetails
     },
     {

@@ -10,7 +10,8 @@
           <v-card-title>{{ post.title }}</v-card-title>
           <v-card-text>{{ post.phone }}</v-card-text>
           <v-card-text>{{ post.desc }}</v-card-text>
-          <v-btn small to="/post-details">Details</v-btn>
+          <!-- <router-link small :to="{name: 'post-details', params: { postId: post.id}}">Details</router-link> -->
+          <router-link :to="`/post-details/${post.id}`">Details</router-link>
         </v-card>
       </div>
     </div>
@@ -24,7 +25,9 @@ export default {
     this.$store.dispatch("setPosts");
   },
   data() {
-    return {};
+    return {
+      postId: this.$route.params.id
+    };
   }
 };
 </script>
