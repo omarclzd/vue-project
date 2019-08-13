@@ -3,7 +3,7 @@
     <v-layout align-center justify-center>
       <v-flex xs12 sm8 md4>
         <v-card class="elevation-12">
-          <v-toolbar dark color="primary">
+          <v-toolbar dark color="#323232">
             <v-toolbar-title>Signup Form</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
@@ -29,7 +29,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="!valid" @click="submit">Signup</v-btn>
+            <v-btn color="#43A047" :disabled="!valid" @click="submit">Signup</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>

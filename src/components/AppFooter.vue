@@ -1,8 +1,8 @@
 <template>
-  <v-footer height="auto" color="indigo">
+  <v-footer id="footer" height="auto" color="#33691E">
     <v-layout row wrap justify-center>
       <v-btn v-for="link in links" :key="link" color="white" flat>{{ link }}</v-btn>
-      <v-flex xs12 py-3 text-xs-center white--text>
+      <v-flex xs12 py-3 text-xs-center black--text>
         &copy;2018 —
         <strong class="text-center">Vuetify</strong>
       </v-flex>
@@ -15,3 +15,8 @@ export default {
   name: "AppFooter"
 };
 </script>
+<style scoped>
+.text-center {
+  color: black;
+}
+</style>

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import AddPost from "./views/AddPost.vue";
 import store from "./store";
 
 Vue.use(Router);
@@ -13,6 +14,11 @@ const router = new Router({
       path: "/",
       name: "home",
       component: Home
+    },
+    {
+      path: "/add-post",
+      name: "addpost",
+      component: AddPost
     },
     {
       path: "/profile",
