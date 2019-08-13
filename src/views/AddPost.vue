@@ -35,6 +35,9 @@ import firebase from "firebase";
 
 export default {
   name: "addpost",
+  beforeCreate: function() {
+    this.$store.dispatch("setItems");
+  },
   data() {
     return {
       title: "",

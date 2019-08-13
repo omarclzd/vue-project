@@ -1,5 +1,5 @@
 <template>
-  <v-footer id="footer" height="auto" color="#33691E">
+  <v-footer id="footer" height="auto" color="#41B883">
     <v-layout row wrap justify-center>
       <v-btn v-for="link in links" :key="link" color="white" flat>{{ link }}</v-btn>
       <v-flex xs12 py-3 text-xs-center black--text>

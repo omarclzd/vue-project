@@ -21,7 +21,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app color="#43A047" dark>
+    <v-app-bar app color="#41B883" dark>
       <v-app-bar-nav-icon black--text @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <router-link to="/">
         <v-toolbar-title to="/">{{appTitle}}</v-toolbar-title>

@@ -8,10 +8,14 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    posts: null,
     user: null,
     isAuthenticated: false
   },
   getters: {
+    getPosts: state => {
+      return state.posts;
+    },
     isAuthenticated(state) {
       return state.user !== null && state.user !== undefined;
     }
@@ -22,9 +26,30 @@ export default new Vuex.Store({
     },
     setIsAuthenticated(state, payload) {
       state.isAuthenticated = payload;
+    },
+    setPosts: state => {
+      let posts = [];
+      firebase
+        .firestore()
+        .collection("posts")
+        .orderBy("created_at")
+        .onSnapshot(snapshot => {
+          posts = [];
+          snapshot.forEach(doc => {
+            posts.push({
+              id: doc.id,
+              title: doc.data().title,
+              posted: doc.data().created_at
+            });
+          });
+          state.posts = posts;
+        });
     }
   },
   actions: {
+    setPosts: context => {
+      context.commit("setPosts");
+    },
     userJoin({ commit }, { email, password }) {
       firebase
         .auth()
