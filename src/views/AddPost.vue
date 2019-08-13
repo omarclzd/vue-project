@@ -32,12 +32,11 @@
 
  <script>
 import firebase from "firebase";
+import router from "@/router";
 
 export default {
   name: "addpost",
-  beforeCreate: function() {
-    this.$store.dispatch("setItems");
-  },
+
   data() {
     return {
       title: "",
@@ -59,6 +58,7 @@ export default {
           .then(response => {
             if (response) {
               this.title = "";
+              router.push("/profile");
             }
           })
           .catch(error => {
