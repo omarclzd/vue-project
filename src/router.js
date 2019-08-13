@@ -18,7 +18,10 @@ const router = new Router({
     {
       path: "/add-post",
       name: "addpost",
-      component: AddPost
+      component: AddPost,
+      meta: {
+        authRequired: true
+      }
     },
     {
       path: "/profile",
