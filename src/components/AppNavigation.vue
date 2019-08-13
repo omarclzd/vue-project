@@ -34,10 +34,15 @@
         <h2>no user</h2>
       </div>
       <v-spacer></v-spacer>
-      <v-btn flat to="/sign-in">SIGN IN</v-btn>
-      <v-btn color="green lighten-3" to="/sign-up">Signup</v-btn>
-      <v-btn flat to="/profile">PROFILE</v-btn>
-      <v-btn flat to="/add-post">Add</v-btn>
+      <div v-if="!isAuthenticated" class="hidden-sm-and-down">
+        <v-btn small flat to="/sign-in">SIGN IN</v-btn>
+        <v-btn small color="green lighten-3" to="/sign-up">Signup</v-btn>
+      </div>
+      <div v-else class="hidden-sm-and-down">
+        <v-btn small flat to="/profile">PROFILE</v-btn>
+        <v-btn small flat to="/add-post">Add</v-btn>
+        <v-btn flat small color="black" @click="logout">Logout</v-btn>
+      </div>
     </v-app-bar>
   </span>
 </template>
@@ -51,6 +56,16 @@ export default {
       drawer: false,
       items: [{ title: "Home" }, { title: "Sign In" }, { title: "Sign Up" }]
     };
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters.isAuthenticated;
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("userSignOut");
+    }
   }
 };
 </script>
