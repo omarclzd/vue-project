@@ -4,20 +4,31 @@
     <h1>This is an Add page</h1>
     <v-form v-model="valid">
       <v-container>
-        <v-row>
+        <v-row class="d-flex justify-center">
           <v-col cols="12" md="4">
-            <v-text-field v-model="title" :rules="nameRules" :counter="10" label="title" required></v-text-field>
-          </v-col>
-          <v-col cols="12" md="4">
-            <v-text-field v-model="phone" :rules="phoneRules" label="phone (xxx-xxx-xxxx)" required></v-text-field>
-          </v-col>
+            <v-card elevation="10" dark>
+              <v-card-text>
+                <v-text-field
+                  v-model="title"
+                  :rules="nameRules"
+                  :counter="10"
+                  label="title"
+                  required
+                ></v-text-field>
 
-          <v-col cols="12" md="4">
-            <v-textarea v-model="desc" solo label="description" required></v-textarea>
-          </v-col>
-          <v-col cols="12" md="4">
-            <v-btn @click="addPost" color="primary">Add</v-btn>
-            <div v-if="errors !== ''" id="errors">{{ errors }}</div>
+                <v-text-field
+                  v-model="phone"
+                  :rules="phoneRules"
+                  label="phone (xxx-xxx-xxxx)"
+                  required
+                ></v-text-field>
+
+                <v-textarea v-model="desc" solo label="description" required></v-textarea>
+
+                <v-btn @click="addPost" color="primary">Add</v-btn>
+                <div v-if="errors !== ''" id="errors">{{ errors }}</div>
+              </v-card-text>
+            </v-card>
           </v-col>
 
           <!-- <v-col cols="12" md="4">

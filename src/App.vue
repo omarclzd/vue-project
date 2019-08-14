@@ -29,4 +29,12 @@ export default {
   text-align: center;
   color: #050505;
 }
+
+a {
+  text-decoration: none !important;
+}
+
+a:visited {
+  color: white !important;
+}
 </style>

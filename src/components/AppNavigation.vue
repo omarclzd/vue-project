@@ -24,7 +24,7 @@
     <v-app-bar app color="#41B883" dark>
       <v-app-bar-nav-icon black--text @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <router-link to="/">
-        <v-toolbar-title to="/">{{appTitle}}</v-toolbar-title>
+        <v-toolbar-title to="/" class="font-weight-bold">{{appTitle}}</v-toolbar-title>
       </router-link>
       <v-spacer></v-spacer>
       <div v-if="this.$store.getters.getUser">
@@ -34,14 +34,14 @@
         <h2>no user</h2>
       </div>
       <v-spacer></v-spacer>
-      <div v-if="!isAuthenticated" class="hidden-sm-and-down">
+      <div v-if="!isAuthenticated">
         <v-btn small flat to="/sign-in">SIGN IN</v-btn>
         <v-btn small color="green lighten-3" to="/sign-up">Signup</v-btn>
       </div>
-      <div v-else class="hidden-sm-and-down">
-        <v-btn small flat to="/profile">PROFILE</v-btn>
-        <v-btn small flat to="/add-post">Add</v-btn>
-        <v-btn flat small color="black" @click="logout">Logout</v-btn>
+      <div v-else>
+        <v-btn small dark flat to="/profile">PROFILE</v-btn>
+        <v-btn small dark flat to="/add-post">Add</v-btn>
+        <v-btn flat small dark @click="logout">Logout</v-btn>
       </div>
     </v-app-bar>
   </span>
@@ -69,3 +69,5 @@ export default {
   }
 };
 </script>
+<style scoped>
+</style>

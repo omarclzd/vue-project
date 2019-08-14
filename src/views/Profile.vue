@@ -1,25 +1,31 @@
 <template>
   <div class="profile">
-    <div class="home">
+    <v-container>
       <img alt="Vue logo" src="../assets/logo.png" />
       <h1>This is the Profile page</h1>
 
       <div class="title">This are the User's posts...</div>
-      <div v-if="this.$store.getters.getUserPosts && this.$store.getters.getUserPosts.length > 0">
+      <v-row
+        class="d-flex justify-center"
+        v-if="this.$store.getters.getUserPosts && this.$store.getters.getUserPosts.length > 0"
+      >
         <div v-for="post in this.$store.getters.getUserPosts" :key="post.id">
-          <v-card max-width="344" class="mx-auto" outlined="true">
-            <v-card-title>{{ post.title }}</v-card-title>
-            <v-card-text>{{ post.phone }}</v-card-text>
-            <v-card-text>{{ post.desc }}</v-card-text>
-            <v-btn
-              color="red"
-              style="text-decoration:underline;"
-              @click="deletePost(post.id)"
-            >Delete</v-btn>
-          </v-card>
+          <v-col>
+            <v-card dark elevation="10" max-width="344" class="mx-auto" outlined="true">
+              <v-card-title>{{ post.title }}</v-card-title>
+              <v-card-text>{{ post.phone }}</v-card-text>
+              <v-card-text>{{ post.desc }}</v-card-text>
+              <v-btn
+                color="#D50000"
+                x-small
+                class="mb-2 white--text font-weight-bold"
+                @click="deletePost(post.id)"
+              >X</v-btn>
+            </v-card>
+          </v-col>
         </div>
-      </div>
-    </div>
+      </v-row>
+    </v-container>
   </div>
 </template>
 <script>

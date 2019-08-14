@@ -88,7 +88,6 @@ export default new Vuex.Store({
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(user => {
-          user.updateProfile({ displayName: this.displayName });
           commit("setUser", user);
           commit("setIsAuthenticated", true);
           router.push("/profile");
