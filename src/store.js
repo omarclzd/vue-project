@@ -46,6 +46,7 @@ export default new Vuex.Store({
             posts.push({
               id: doc.id,
               title: doc.data().title,
+              city: doc.data().city,
               phone: doc.data().phone,
               desc: doc.data().desc,
               posted: doc.data().created_at
@@ -67,6 +68,7 @@ export default new Vuex.Store({
             userPosts.push({
               id: doc.id,
               title: doc.data().title,
+              city: doc.data().city,
               phone: doc.data().phone,
               desc: doc.data().desc,
               posted: doc.data().created_at

@@ -13,8 +13,9 @@
           <v-col>
             <v-card dark elevation="10" max-width="344" class="mx-auto" outlined="true">
               <v-card-title>{{ post.title }}</v-card-title>
-              <v-card-text>{{ post.phone }}</v-card-text>
-              <v-card-text>{{ post.desc }}</v-card-text>
+              <v-card-text>City: {{ post.city }}</v-card-text>
+              <v-card-text>Phone: {{ post.phone }}</v-card-text>
+              <v-card-text>Description: {{ post.desc }}</v-card-text>
               <v-btn
                 color="#D50000"
                 x-small

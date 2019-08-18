@@ -28,7 +28,10 @@
       </router-link>
       <v-spacer></v-spacer>
       <div v-if="this.$store.getters.getUser">
-        <h2>User</h2>
+        <h2>
+          User
+    
+        </h2>
       </div>
       <div v-else>
         <h2>no user</h2>
@@ -65,6 +68,9 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("userSignOut");
+    },
+    logUser() {
+      console.log(this.$store.getters.getUser);
     }
   }
 };

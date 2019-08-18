@@ -7,8 +7,9 @@
         <v-col v-if="post.id == postId">
           <v-card dark elevation="13" max-width="344" class="mx-auto mb-3">
             <v-card-title>{{ post.title }}</v-card-title>
-            <v-card-text>{{ post.phone }}</v-card-text>
-            <v-card-text>{{ post.desc }}</v-card-text>
+            <v-card-text>City: {{ post.city }}</v-card-text>
+            <v-card-text>Phone: {{ post.phone }}</v-card-text>
+            <v-card-text>Description: {{ post.desc }}</v-card-text>
           </v-card>
           <v-btn color="#41B883" class="white--text font-weight-bold" to="/">back</v-btn>
         </v-col>

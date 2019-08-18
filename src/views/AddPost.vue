@@ -8,13 +8,8 @@
           <v-col cols="12" md="4">
             <v-card elevation="10" dark>
               <v-card-text>
-                <v-text-field
-                  v-model="title"
-                  :rules="nameRules"
-                  :counter="10"
-                  label="title"
-                  required
-                ></v-text-field>
+                <v-text-field v-model="title" :rules="nameRules" label="title" required></v-text-field>
+                <v-select v-model="city" :items="cityItems" label="city" required></v-select>
 
                 <v-text-field
                   v-model="phone"
@@ -50,9 +45,10 @@ export default {
   data() {
     return {
       title: "",
+      city: "",
       phone: "",
       desc: "",
-
+      cityItems: ["Austin", "San Marcos", "Roundrock"],
       errors: "",
       phoneRules: [
         v => /^[2-9]\d{2}-\d{3}-\d{4}$/.test(v) || "phone must be valid"
@@ -68,6 +64,7 @@ export default {
           .collection("posts")
           .add({
             title: this.title,
+            city: this.city,
             phone: this.phone,
             desc: this.desc,
             created_at: new Date(),
